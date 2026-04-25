@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import dev.anothercastle.app.model.BrowserInfo
 import dev.anothercastle.app.ui.BrowserPickerScreen
 import dev.anothercastle.app.ui.theme.AnotherCastleTheme
 import dev.anothercastle.app.viewmodel.BrowserPickerViewModel
@@ -17,17 +18,16 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Grab the incoming URL if we were launched as a browser
         val incomingUrl = intent?.data?.toString()
 
         setContent {
             AnotherCastleTheme {
                 BrowserPickerScreen(
                     url = incomingUrl,
-                    viewModel = viewModel,
                     onBrowserSelected = { browser ->
                         launchInBrowser(incomingUrl, browser)
-                    }
+                    },
+                    viewModel = viewModel
                 )
             }
         }
@@ -39,6 +39,6 @@ class MainActivity : ComponentActivity() {
             setClassName(browser.packageName, browser.activityName)
         }
         startActivity(intent)
-        finish() // Close AnotherCastle after forwarding
+        finish()
     }
 }
