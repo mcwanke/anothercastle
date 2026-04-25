@@ -1,0 +1,29 @@
+# Android
+android/.gradle/
+android/local.properties
+android/*.iml
+android/.idea/
+android/app/build/
+android/build/
+android/captures/
+android/.externalNativeBuild/
+android/.cxx/
+
+# Coordinator (Node)
+toadstool/node_modules/
+toadstool/dist/
+toadstool/.env
+
+# Desktop-Win (Tauri/Rust later)
+desktop-win/target/
+
+# Desktop-Mac (Tauri/Rust later)
+desktop-mac/target/
+
+# Desktop-Lnx (Tauri/Rust later)
+desktop-lnx/target/
+
+# General
+.DS_Store
+*.log
+EOF
